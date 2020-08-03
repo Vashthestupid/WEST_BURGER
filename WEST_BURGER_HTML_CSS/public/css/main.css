@@ -1,0 +1,60 @@
+/* Barre de navigation */
+
+.navbar{
+    height: auto;
+*}
+
+.navbar .nav-link, .search{
+    font-family: 'Rock Salt', cursive;
+}
+
+.navbar-brand, #logo_site{
+    width: 160px;
+}
+
+
+/* Partie SOUS-MENU */
+
+#sous_menu{
+    background-color: #a8ae00;
+    z-index : 1;
+    display : none;
+}
+
+.image_sous_menu{
+    width: 200px;
+}
+
+.lien_produit{
+    color: #FFFFFF;
+    font-family: 'Rock Salt', cursive;
+    text-decoration: none;
+} 
+.lien_produit:hover{
+    color: #000000;
+    transition-duration: 1s;
+    text-decoration: none;
+}
+
+/* Partie SECTION  */
+
+#content{
+    height: 642px;
+    z-index: -1;
+}
+
+/* Partie FOOTER */
+
+footer{
+    height: auto;
+}
+
+.logo_reseaux{
+    width: 70px;
+}
+
+
+
+
+
+
