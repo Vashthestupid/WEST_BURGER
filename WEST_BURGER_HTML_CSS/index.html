@@ -2,113 +2,128 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>West Burger</title>
-  <link rel="icon" type="image/png" href="public/images/favicon.png" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="public/css/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="public/css/main.css">
+
 </head>
 
 <body>
-  <!-- NAVBAR Barre de navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img id="logo_site" src="public/images/logo_west_burger.png"
-        alt="Logo de WEST BURGER"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+	<!-- Barre de navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"><img id="logo_site" src="public/images/logo_west_burger.png"
+				alt="Logo West Burger"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a id="link_sous_menu" class="nav-link" href="#">Nos Produits</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Qui sommes nous ?</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Inscription/Connexion</a>
-        </li>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a id="lien_sous_menu" class="nav-link">Nos Produits</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Qui sommes nous ?</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="src/views/inscription.html">Inscription/Connexion</a>
+				</li>
 
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0 search" type="submit">Recherche</button>
-      </form>
-    </div>
-  </nav>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
 
-  <!-- Menu qui apparaît au survol du lien "Nos Produit" -->
-  <div id="sous_menu">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="offset-md-2 col-md-5">
-          <img class="image_sous_menu" src="public/images/menu.png" alt="image menu">
-          <a class="lien_produit" href="src/views/menus.html">Nos menus</a>
-        </div>
-        <div class="col-md-4">
-          <img class="image_sous_menu" src="public/images/menu.png" alt="image menu">
-          <a class="lien_produit" href="src/views/menus.html">Nos Sandwichs</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="offset-md-2 col-md-5">
-          <img class="image_sous_menu" src="public/images/menu.png" alt="image menu">
-          <a class="lien_produit" href="src/views/menus.html">Nos Free</a>
-        </div>
-        <div class="col-md-4">
-          <img class="image_sous_menu" src="public/images/menu.png" alt="image menu">
-          <a class="lien_produit" href="src/views/menus.html">Nos boissons</a>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- Sous menu -->
 
-  <section id="content">
-    <div class="col-sm-12 offset-md-2 col-md-6">
-      <h1>Bienvenue</h1>
-      <p class="mt-2"> sur le site de WEST BURGER et bon appetit ;)</p>
-    </div>
-  </section>
+	<div id="sous_menu">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12 offset-md-2 col-md-5">
+					<img class="logo_produit" src="public/images/burger.png" alt="image menu">
+					<a class="lien_produit" href="src/views/sandwich.html">Nos Sandwichs</a>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<img class="logo_produit" src="public/images/menu.png" alt="image menu">
+					<a class="lien_produit" href="src/views/menus.html">Nos Menus</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class=" col-sm-12 offset-md-2 col-md-5">
+					<img class="logo_produit" src="public/images/nuggets.png" alt="image menu">
+					<a class="lien_produit" href="src/views/friture.html">Nos Frit</a>
+				</div>
+				<div class=" col-sm-12 col-md-4">
+					<img class="logo_produit" src="public/images/gobelet.png" alt="image menu">
+					<a class="lien_produit" href="src/views/boissons.html">Nos Boissons</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <footer class="bg-dark text-light">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12 col-md-4 mt-2">
-          <p class="d-flex justify-content-center">Contact</p>
-          <div class="informations">
-            N° de téléphone : 07-07-07-07-07
-            <br>
-            mail : faysalidj@gmail.com
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-4 mt-2">
-          <p class="d-flex justify-content-center">Mentions Légales</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div class="col-sm-12 col-md-4 mt-2">
-          <p class="d-flex justify-content-center">Retrouvez nous sur ces réseaux sociaux</p>
-          <a class="d-flex mx-auto" href=""><img class="logo_reseaux d-flex mx-auto "
-              src="public/images/logo_facebook.png" alt="Logo facebook"></a>
-        </div>
+	<!-- Contenu  -->
 
-      </div>
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
-  <script src="public/js/main.js"></script>
+	<section id="content">
+		<div class="container">
+			<div class="row">
+				<h1 id='intro' class="mt-3 d-flex justify-content-center">Bienvenue sur notre site</h1>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 offset-md-1 col-md-4">
+					<p>Ici vous pourrez commander ce qui vous fait envie.
+						De plus chez nous la livraison est gratuite :D.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+
+	<footer class="bg-dark text-light w-100">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12 col-md-4 mt-2">
+					<p class="d-flex justify-content-center">Contact</p>
+					<div class="informations">
+						N° de téléphone : 07-07-07-07-07
+						<br>
+						mail : faysalidj@gmail.com
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 mt-2">
+					<p class="d-flex justify-content-center">Mentions Légales</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+				</div>
+				<div class="col-sm-12 col-md-4 mt-2">
+					<p class="d-flex justify-content-center">Retrouvez nous sur ces réseaux sociaux</p>
+					<a class="d-flex mx-auto" href=""><img class="logo_reseaux d-flex mx-auto "
+							src="public/images/logo_facebook.png" alt="Logo facebook"></a>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+	<script src="public/js/main.js"></script>
 </body>
 
 </html>

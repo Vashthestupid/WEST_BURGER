@@ -1,60 +1,97 @@
-/* Barre de navigation */
-
-.navbar{
-    height: auto;
-*}
-
-.navbar .nav-link, .search{
-    font-family: 'Rock Salt', cursive;
+/* BODY */
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
 }
-
-.navbar-brand, #logo_site{
-    width: 160px;
+body {
+	display : table;
+    width: 100%;
+    overflow: visible;
 }
 
 
-/* Partie SOUS-MENU */
+/* 
 
-#sous_menu{
-    background-color: #a8ae00;
-    z-index : 1;
-    display : none;
-}
+PAGE ACCUEIL
 
-.image_sous_menu{
+*/
+
+/* BARRE DE NAVIGATION */
+
+/* Taille du logo */
+.navbar #logo_site {
     width: 200px;
 }
 
-.lien_produit{
-    color: #FFFFFF;
-    font-family: 'Rock Salt', cursive;
-    text-decoration: none;
-} 
-.lien_produit:hover{
+/* Taille de la police */
+.navbar .nav-link {
+    font-family: "Rock Salt", cursive;
+}
+
+/* Taille de la barre de recherche */
+.navbar .form-control, .btn-outline-secondary {
+    height: 53px;
+}
+
+/* Modifier le curseur du lien "sous menu" */
+.navbar .nav-item #lien_sous_menu{
+    cursor: pointer;
+}
+
+/* SOUS MENU */
+
+/* Couleur du sous menu */
+#sous_menu {
+    background-color: #a8ae00;
+    background: linear-gradient(#a8ae00, #ffffff);
+    display: none;
+}
+
+
+/* Taille des images */
+#sous_menu .logo_produit {
+    width: 170px;
+}
+
+/*  liens */
+#sous_menu .lien_produit {
+    font-family: "Rock Salt", cursive;
+    font-size: 15px;
+    font-weight: bold;
     color: #000000;
-    transition-duration: 1s;
+}
+/* liens au survol */
+#sous_menu .lien_produit:hover {
+    color: #c41215;
+    transition-duration: 0.5s;
     text-decoration: none;
 }
 
-/* Partie SECTION  */
+/* CONTENU */
 
-#content{
-    height: 642px;
-    z-index: -1;
+/* Placement du contenu */
+#content #intro {
+    font-size: 26px;
 }
 
-/* Partie FOOTER */
-
-footer{
-    height: auto;
+/* FOOTER */
+footer {
+	display : table-row;
+	height: 100px; /* à titre d'exemple */
 }
 
-.logo_reseaux{
-    width: 70px;
+/* 
+
+PAGE IINSCRIPTION
+
+*/
+
+/* Formulaire de connexion */
+
+#connexion, #inscription {
+    display : none;
 }
 
-
-
-
+/* Gestion du bouton valider du formulaire inscription*/
 
 
