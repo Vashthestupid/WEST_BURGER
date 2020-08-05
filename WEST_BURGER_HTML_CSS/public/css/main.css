@@ -1,14 +1,15 @@
 /* BODY */
-html, body {
-	height: 100%;
-	margin: 0; padding: 0;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 body {
-	display : table;
+    display: table;
     width: 100%;
     overflow: visible;
 }
-
 
 /* 
 
@@ -20,7 +21,7 @@ PAGE ACCUEIL
 
 /* Taille du logo */
 .navbar #logo_site {
-    width: 200px;
+    width: 156px;
 }
 
 /* Taille de la police */
@@ -29,12 +30,13 @@ PAGE ACCUEIL
 }
 
 /* Taille de la barre de recherche */
-.navbar .form-control, .btn-outline-secondary {
+.navbar .form-control,
+.btn-outline-secondary {
     height: 53px;
 }
 
 /* Modifier le curseur du lien "sous menu" */
-.navbar .nav-item #lien_sous_menu{
+.navbar .nav-item #lien_sous_menu {
     cursor: pointer;
 }
 
@@ -46,7 +48,6 @@ PAGE ACCUEIL
     background: linear-gradient(#a8ae00, #ffffff);
     display: none;
 }
-
 
 /* Taille des images */
 #sous_menu .logo_produit {
@@ -69,29 +70,50 @@ PAGE ACCUEIL
 
 /* CONTENU */
 
-/* Placement du contenu */
+/* Taille du titre du contenu */
 #content #intro {
     font-size: 26px;
 }
 
 /* FOOTER */
 footer {
-	display : table-row;
-	height: 100px; /* à titre d'exemple */
+    display: table-row;
+    height: 100px;
 }
 
 /* 
 
-PAGE IINSCRIPTION
+PAGE INSCRIPTION
 
 */
 
 /* Formulaire de connexion */
 
-#connexion, #inscription {
-    display : none;
+#connexion,
+#inscription {
+    display: none;
 }
 
-/* Gestion du bouton valider du formulaire inscription*/
+/*
 
+PAGE FICHE PRODUIT
+
+*/
+
+.boutonValider{
+    width: 100%;
+    margin: 0;
+
+}
+
+.suppléments {
+    display: none;
+}
+
+.image_plus {
+    width: 50px;
+    border: none;
+    background: none;
+    outline: none;
+}
 

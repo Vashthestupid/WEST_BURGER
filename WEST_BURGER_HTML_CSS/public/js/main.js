@@ -1,12 +1,12 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
     // Faire apparaître le sous menu
-    $('#lien_sous_menu').click(function(){
+    $('#lien_sous_menu').click(function () {
         $('#sous_menu').toggle();
     })
 
     // Faire apparaître un formulaire au clic 
-    $('#btnInscription').click(function(){
+    $('#btnInscription').click(function () {
         $('#inscription').show();
         $('#connexion').hide();
         // Changer la couleur des boutons en fonction de
@@ -17,7 +17,7 @@ $(document).ready(function(){
         $('#btnConnexion').addClass('btn-secondary');
     })
 
-    $('#btnConnexion').click(function(){
+    $('#btnConnexion').click(function () {
         $('#connexion').show();
         $('#inscription').hide();
         // Changer la couleur des boutons en fonction de
@@ -27,4 +27,8 @@ $(document).ready(function(){
         $('#btnInscription').removeClass('btn-primary');
         $('#btnInscription').addClass('btn-secondary');
     })
+
+    // Sur la page fiche produit le bouton plus affichera le formulaire de suppléments et fera disparaître le bouton valider
+
+
 })

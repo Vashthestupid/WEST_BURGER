@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>West Burger - Inscription/Connexion</title>
+    <title>West Burger - Nos fritures</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
 <body>
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="../../index.html"><img id="logo_site" src="../../public/images/logo_west_burger.png"
-                alt="Logo West Burger"></a>
+        <a class="navbar-brand" href="../../index.html"><img id="logo_site"
+                src="../../public/images/logo_west_burger.png" alt="Logo West Burger"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,9 +31,8 @@
                     <a class="nav-link" href="qui_sommes_nous.html">Qui sommes nous ?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inscription/Connexion</a>
+                    <a class="nav-link" href="inscription.html">Inscription/Connexion</a>
                 </li>
-
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -59,7 +58,7 @@
             <div class="row">
                 <div class=" col-sm-12 offset-md-2 col-md-5">
                     <img class="logo_produit" src="../../public/images/nuggets.png" alt="image menu">
-                    <a class="lien_produit" href="friture.html">Nos Frit</a>
+                    <a class="lien_produit" href="#">Nos Frit</a>
                 </div>
                 <div class=" col-sm-12 col-md-4">
                     <img class="logo_produit" src="../../public/images/gobelet.png" alt="image menu">
@@ -72,60 +71,72 @@
     <!-- Contenu  -->
 
     <section id="content">
-        <div class="d-flex justify-content-center mt-5">
-            <button id="btnInscription" type="button" class="btn btn-sm btn-secondary mr-3">Inscription</button>
-            <button id="btnConnexion" type="button" class="btn btn-sm btn-secondary">Connexion</button>
-        </div>
-        <br>
-
-        <div id="connexion" class="offset-md-2 col-md-8">
-            <h2 class=" titleForm d-flex justify-content-center">Formulaire de connexion</h2>
-            <form action="index.php" method='post' id="formConnexion" class="mt-5">
-                <div class="form-group">
-                    <label for="email" class="d-flex justify-content-center">Email</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="email" name="email" id="email">
+        <div class="container">
+            <div class="row">
+                <h1 id='intro' class="col-sm-12 mt-3 d-flex justify-content-center">Nos Fritures</h1>
+            </div>
+            <div class="row">
+                <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                    <div class="card">
+                        <img src="../../public/images/nuggets.png" class="card-img-top w-50 d-flex mx-auto" alt="image Nuggets">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center">Nuggets</h5>
+                          <p class="card-text d-flex justify-content-center">10€</p>
+                          <a href="ficheProduit.html" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        </div>
+                      </div>
                 </div>
-                <div class="form-group">
-                    <label for="mdp" class="d-flex justify-content-center">Mot de passe</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="password" name="mdp" id="mdp">
+                <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                    <div class="card">
+                        <img src="../../public/images/nuggets.png" class="card-img-top w-50 d-flex mx-auto" alt="image Nuggets">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center">Nuggets</h5>
+                          <p class="card-text d-flex justify-content-center">10€</p>
+                          <a href="ficheProduit.html" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        </div>
+                      </div>
                 </div>
-                <input type="submit" name="login" value="Valider" class="btn btn-success d-flex mx-auto">
-            </form>
-        </div>
-
-        <div id="inscription">
-            <h2 class=" titleForm d-flex justify-content-center">Formulaire d'inscription</h2>
-            <form method="post" class="offset-md-2 col-md-8 mt-5">
-                <div class="form-group">
-                    <label for="nom" class="d-flex justify-content-center">Nom</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="text" name="nom" id="nom">
+                <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                    <div class="card">
+                        <img src="../../public/images/nuggets.png" class="card-img-top w-50 d-flex mx-auto" alt="image Nuggets">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center">Nuggets</h5>
+                          <p class="card-text d-flex justify-content-center">10€</p>
+                          <a href="ficheProduit.html" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        </div>
+                      </div>
                 </div>
-                <div class="form-group">
-                    <label for="prenom" class="d-flex justify-content-center">Prenom</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="text" name="prenom" id="prenom">
+                <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                    <div class="card">
+                        <img src="../../public/images/nuggets.png" class="card-img-top w-50 d-flex mx-auto" alt="image Nuggets">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center">Nuggets</h5>
+                          <p class="card-text d-flex justify-content-center">10€</p>
+                          <a href="ficheProduit.html" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        </div>
+                      </div>
                 </div>
-                <div class="form-group">
-                    <label for="email" class="d-flex justify-content-center">Email</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="email" name="emailInsc" id="emailInsc">
+                <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                    <div class="card">
+                        <img src="../../public/images/nuggets.png" class="card-img-top w-50 d-flex mx-auto" alt="image Nuggets">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center">Nuggets</h5>
+                          <p class="card-text d-flex justify-content-center">10€</p>
+                          <a href="ficheProduit.html" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        </div>
+                      </div>
                 </div>
-                <div class="form-group">
-                    <label for="mdp" class="d-flex justify-content-center">Mot de passe</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="password" name="mdpInsc" id="mdpInsc">
+                <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                    <div class="card">
+                        <img src="../../public/images/nuggets.png" class="card-img-top w-50 d-flex mx-auto" alt="image Burger">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center">West Burger</h5>
+                          <p class="card-text d-flex justify-content-center">20€</p>
+                          <a href="ficheProduit.html" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        </div>
+                      </div>
                 </div>
-                <div class="form-group">
-                    <label for="adresse" class="d-flex justify-content-center">Adresse</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="text" name="adresse" id="adresse">
-                </div>
-                <div class="form-group">
-                    <label for="cp" class="d-flex justify-content-center">Code Postal</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="text" name="cp" id="cp">
-                </div>
-                <div class="form-group">
-                    <label for="ville" class="d-flex justify-content-center">Ville</label>
-                    <input class="form-inline d-flex mx-auto w-75" type="text" name="ville" id="ville">
-                </div>
-                <input type="submit" name="valider" value="Valider" class="btn btn-success d-flex mx-auto">
-            </form>
+            </div>
         </div>
     </section>
 
@@ -148,7 +159,8 @@
                 </div>
                 <div class="col-sm-12 col-md-4 mt-2">
                     <p class="d-flex justify-content-center">Retrouvez nous sur ces réseaux sociaux</p>
-                    <a class="d-flex mx-auto" href=""><img class="logo_reseaux d-flex mx-auto " src="../../public/images/logo_facebook.png" alt="Logo facebook"></a>
+                    <a class="d-flex mx-auto" href=""><img class="logo_reseaux d-flex mx-auto "
+                            src="../../public/images/logo_facebook.png" alt="Logo facebook"></a>
                 </div>
 
             </div>
