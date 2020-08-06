@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Burger - Nos Boissons</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/main.css">
+
+</head>
+
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../index.html"><img id="logo_site"
+                src="../../public/images/logo_west_burger.png" alt="Logo West Burger"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="lien_sous_menu" class="nav-link">Nos Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="qui_sommes_nous.html">Qui sommes nous ?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inscription.html">Inscription/Connexion</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Sous menu -->
+
+    <div id="sous_menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 offset-md-2 col-md-5">
+                    <img class="logo_produit" src="../../public/images/burger.png" alt="image menu">
+                    <a class="lien_produit" href="sandwich.html">Nos Sandwichs</a>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <img class="logo_produit" src="../../public/images/menu.png" alt="image menu">
+                    <a class="lien_produit" href="menus.html">Nos Menus</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-sm-12 offset-md-2 col-md-5">
+                    <img class="logo_produit" src="../../public/images/nuggets.png" alt="image menu">
+                    <a class="lien_produit" href="friture.html">Nos Frit</a>
+                </div>
+                <div class=" col-sm-12 col-md-4">
+                    <img class="logo_produit" src="../../public/images/gobelet.png" alt="image menu">
+                    <a class="lien_produit" href="#">Nos Boissons</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenu  -->
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <!-- Colonne NomProduit,imageProduit,prixProduit -->
+                <div class="col-sm-12 offset-md-1 col-md-3 mt-3">
+                    <div class="informations">
+                        <h4 class="d-flex justify-content-center">Menu XL</h4>
+                        <img class="w-75 ml-4" src="../../public/images/menu.png" alt="image menu">
+                        <p class="d-flex justify-content-center">Prix: 8,99€</p>
+                    </div>
+                </div>
+                <!-- Colonne Description puis gestion de la commande  -->
+                <div class="col-sm-12 offset-md-2 col-md-4">
+                    <div class="information mt-3">
+                        <h5 class="d-flex justify-content-center">Contenu du menu</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <form id="ajouter" method="post">
+                            <div class="form-group">
+                                <label class="d-flex" for="burger">Choisissez votre burger</label>
+                                <select name="burger" id="burger">
+                                    <option>Votre burger</option>
+                                    <option value="west burger">West Burger</option>
+                                    <option value="CheeseBurger">CheeseBurger</option>
+                                    <option value="west burger">Hamburger</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="d-flex" for="boisson">Choisissez votre boisson</label>
+                                <select name="boisson" id="boisson">
+                                    <option>Votre boisson</option>
+                                    <option value="coca">Coca Cola</option>
+                                    <option value="fanta_orange">Fanta orange</option>
+                                    <option value="fanta_citron">Fanta citron</option>
+                                    <option value="ice_tea_peche">Ice tea Pêche</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="d-flex" for="quantite">Quantité</label>
+                                <input type="number" name="quantite" id="quantite">
+                            </div>
+                            <input class="btn btn-secondary" type="submit" value="Ajouter">
+                        </form>
+                    </div>
+                    <button id="personnaliser" class="d-flex mx-auto mb-3 mt-2">Personnaliser</button>
+                    <form class="suppléments">
+                        <div class="form-group">
+                            <label class="d-flex" for="burger">Choisissez votre burger</label>
+                            <select name="burger" id="burger">
+                                <option>Votre burger</option>
+                                <option value="west burger">West Burger</option>
+                                <option value="CheeseBurger">CheeseBurger</option>
+                                <option value="west burger">Hamburger</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="d-flex" for="supplement1">Supplément</label>
+                            <select name="suppplement1" id="supplement">
+                                <option>Choix d'un supplément</option>
+                                <option value="viande">Viande + 1,50€</option>
+                                <option value="sauce">Sauce + 0,50€</option>
+                                <option value="viande">Fromage + 1,00€</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="d-flex" for="fromages">Choix du fromage</label>
+                            <select name="fromage" id="fromage">
+                                <option>Choix du fromage</option>
+                                <option value="raclette">Raclette + 0,50€</option>
+                                <option value="cheddar">Cheddar + 1,00€</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="d-flex" for="viande">Choix de la viande</label>
+                            <select name="fromage" id="fromage">
+                                <option>Choisir le type de viande</option>
+                                <option value="boeuf">Boeuf + 2,50€</option>
+                                <option value="poulet">Poulet + 2,00€</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="d-flex" for="boisson">Choisissez votre boisson</label>
+                            <select name="boisson" id="boisson">
+                                <option>Votre boisson</option>
+                                <option value="coca">Coca Cola</option>
+                                <option value="fanta_orange">Fanta orange</option>
+                                <option value="fanta_citron">Fanta citron</option>
+                                <option value="ice_tea_peche">Ice tea Pêche</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="d-flex" for="quantite">Quantité</label>
+                            <input type="number" name="quantite" id="quantite">
+                        </div>
+                        <input class="btn btn-secondary mb-3" type="submit" value="Ajouter">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-dark text-light w-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 mt-2">
+                    <p class="d-flex justify-content-center">Contact</p>
+                    <div class="informations">
+                        N° de téléphone : 07-07-07-07-07
+                        <br>
+                        mail : faysalidj@gmail.com
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 mt-2">
+                    <p class="d-flex justify-content-center">Mentions Légales</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="col-sm-12 col-md-4 mt-2">
+                    <p class="d-flex justify-content-center">Retrouvez nous sur ces réseaux sociaux</p>
+                    <a class="d-flex mx-auto" href=""><img class="logo_reseaux d-flex mx-auto "
+                            src="../../public/images/logo_facebook.png" alt="Logo facebook"></a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="../../public/js/main.js"></script>
+</body>
+
+</html>

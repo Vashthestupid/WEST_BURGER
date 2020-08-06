@@ -94,6 +94,8 @@ PAGE INSCRIPTION
     display: none;
 }
 
+#message{display: none;}
+
 /*
 
 PAGE FICHE PRODUIT
@@ -103,7 +105,6 @@ PAGE FICHE PRODUIT
 .boutonValider{
     width: 100%;
     margin: 0;
-
 }
 
 .suppléments {

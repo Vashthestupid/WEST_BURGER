@@ -30,5 +30,18 @@ $(document).ready(function () {
 
     // Sur la page fiche produit le bouton plus affichera le formulaire de suppléments et fera disparaître le bouton valider
 
+    var personnaliser = '<button id="personnaliser" class="open d-flex mx-auto mb-3"> Personnaliser </button>'
+    var fermer = '<button id="fermer" class=" d-flex mx-auto mb-3"> Fermer </button>'
+
+    $('#personnaliser').click(function(){
+        $('.suppléments').show();
+        $('#ajouter').hide();
+        $(this).replaceWith(fermer);
+        $('#fermer').click(function(){
+            $('#ajouter').show();
+            $('.suppléments').hide();
+            $(this).replaceWith(" ");
+        })
+    })
 
 })
