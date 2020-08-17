@@ -1,0 +1,43 @@
+<?php
+
+function footer()
+{
+?>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-dark text-light w-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 mt-2">
+                    <p class="d-flex justify-content-center">Contact</p>
+                    <div class="informations">
+                        N° de téléphone : 07-07-07-07-07
+                        <br>
+                        mail : faydbij@gmail.com
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 mt-2">
+                    <p class="d-flex justify-content-center">Mentions Légales</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="col-sm-12 col-md-4 mt-2">
+                    <p class="d-flex justify-content-center">Retrouvez nous sur ces réseaux sociaux</p>
+                    <a class="d-flex mx-auto" href=""><img class="logo_reseaux d-flex mx-auto " src="/public/images/logo_facebook.png" alt="Logo facebook"></a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="/public/js/main.js"></script>
+    </body>
+
+    </html>
+<?php
+}
