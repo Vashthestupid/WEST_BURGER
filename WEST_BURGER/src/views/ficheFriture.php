@@ -1,19 +1,34 @@
+<?php
+
+// On récupère l'identifiant présent dans la l'urldecode
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
+}
+
+$select = "SELECT * FROM friture WHERE friture.id = :id";
+
+$req = $db->prepare($select);
+$req->bindParam(':id', $id);
+$req->execute();
+
+$friture = $req->fetchObject();
+
+?>
 <div class="container">
     <div class="row">
         <!-- Colonne NomProduit,imageProduit,prixProduit -->
         <div class="col-sm-12 offset-md-1 col-md-3 mt-3">
             <div class="informations">
-                <h4 class="d-flex justify-content-center">Nuggets</h4>
-                <img class="w-75 ml-4" src="../../public/images/nuggets.png" alt="image nuggets">
+                <h4 class="d-flex justify-content-center"><?= $friture->nomFriture ?></h4>
+                <img class="w-75 ml-4" src="/public/images/<?= $friture->imageFriture ?>" alt="image <?= $friture->nomFriture ?>">
             </div>
         </div>
         <!-- Colonne Description puis gestion de la commande  -->
         <div class="col-sm-12 offset-md-2 col-md-4">
             <div class="information mt-3">
                 <h5 class="d-flex justify-content-center">Composition du nuggets</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero rem molestias aut
-                    quasi, odio iure corrupti architecto iusto vitae porro incidunt consequuntur quod quisquam
-                    possimus distinctio! Unde, eaque quasi.</p>
+                <p><?= $friture->descFriture ?></p>
                 <form id="ajouter" method="post">
                     <div class="form-group">
                         <label class="d-flex" for="boîtes">Choisir la taille de la boîte</label>

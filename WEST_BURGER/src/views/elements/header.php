@@ -58,7 +58,9 @@ function head()
                                     <a class="dropdown-item" href="/admin/plats">Liste des plats</a>
                                     <a class="dropdown-item" href="/admin/salades">Liste des salades</a>
                                     <a class="dropdown-item" href="/admin/fritures">Liste des fritures</a>
-                                    <a class="dropdown-item" href="/admin/fritures">Liste des accompagnements</a>
+                                    <a class="dropdown-item" href="/admin/accompagnements">Liste des accompagnements</a>
+                                    <a class="dropdown-item" href="/admin/desserts">Liste des desserts</a>
+                                    <a class="dropdown-item" href="/admin/boissons">Liste des boissons</a>
                                 <?php
                                 } else {
                                     ?>

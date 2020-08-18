@@ -92,6 +92,17 @@ $router->map('GET|POST', '/admin/fritures/Nouvelle_friture', 'Nouvelle_friture',
 $router->map('GET|POST', '/admin/fritures/Voir_Friture', 'Voir_friture', 'Voir_friture');
 $router->map('GET|POST', '/admin/fritures/Editer_Friture', 'Editer_friture', 'Editer_friture');
 $router->map('GET|POST', '/admin/accompagnements', 'accompagnements', 'accompagnements');
+$router->map('GET|POST', '/admin/accompagnements/Nouvel_accompagnement', 'Nouvel_accompagnement', 'Nouvel_accompagnement');
+$router->map('GET|POST', '/admin/accompagnements/Voir_accompagnement', 'Voir_accompagnement', 'Voir_accompagnement');
+$router->map('GET|POST', '/admin/accompagnements/Editer_accompagnement', 'Editer_accompagnement', 'Editer_accompagnement');
+$router->map('GET|POST', '/admin/desserts', 'desserts', 'desserts');
+$router->map('GET|POST', '/admin/desserts/Nouveau_dessert', 'Nouveau_dessert', 'Nouveau_dessert');
+$router->map('GET|POST', '/admin/desserts/Voir_dessert', 'Voir_dessert', 'Voir_dessert');
+$router->map('GET|POST', '/admin/desserts/Editer_dessert', 'Editer_dessert', 'Editer_dessert');
+$router->map('GET|POST', '/admin/boissons', 'boissons', 'boissons');
+$router->map('GET|POST', '/admin/boissons/Nouvelle_boisson', 'Nouvelle_boisson', 'Nouvelle_boisson');
+$router->map('GET|POST', '/admin/boissons/Voir_boisson', 'Voir_boisson', 'Voir_boisson');
+$router->map('GET|POST', '/admin/boissons/Editer_boisson', 'Editer_boisson', 'Editer_boisson');
 
 $match = $router->match();
 
@@ -151,8 +162,30 @@ if ($match['target'] == '/') {
     require "src/views/admin/fritures/voirFriture.php";
 } elseif ($match['target'] == "Editer_friture") {
     require "src/views/admin/fritures/modifierfriture.php";
-}elseif ($match['target'] == "Editer_friture") {
-    require "src/views/admin/fritures/index_accompagnement.php";
+} elseif ($match['target'] == "accompagnements") {
+    require "src/views/admin/accompagnements/index_accompagnement.php";
+} elseif ($match['target'] == "Nouvel_accompagnement") {
+    require "src/views/admin/accompagnements/nouvelAccompagnement.php";
+} elseif ($match['target'] == "Voir_accompagnement") {
+    require "src/views/admin/accompagnements/voirAccompagnement.php";
+} elseif ($match['target'] == "Editer_accompagnement") {
+    require "src/views/admin/accompagnements/modifierAccompagnement.php";
+} elseif ($match['target'] == "desserts") {
+    require "src/views/admin/desserts/index_dessert.php";
+} elseif ($match['target'] == "Nouveau_dessert") {
+    require "src/views/admin/desserts/nouveauDessert.php";
+} elseif ($match['target'] == "Voir_dessert") {
+    require "src/views/admin/desserts/voirDessert.php";
+} elseif ($match['target'] == "Editer_dessert") {
+    require "src/views/admin/desserts/modifierDessert.php";
+} elseif ($match['target'] == "boissons") {
+    require "src/views/admin/boissons/index_boissons.php";
+} elseif ($match['target'] == "Nouvelle_boisson") {
+    require "src/views/admin/boissons/nouvelleBoisson.php";
+} elseif ($match['target'] == "Voir_boisson") {
+    require "src/views/admin/boissons/voirBoisson.php";
+} elseif ($match['target'] == "Editer_boisson") {
+    require "src/views/admin/boissons/modifierBoisson.php";
 }
 
 
