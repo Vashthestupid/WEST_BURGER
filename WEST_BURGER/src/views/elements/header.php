@@ -88,27 +88,27 @@ function head()
                 <div class="row">
                     <div class="col-sm-12 offset-md-2 col-md-5">
                         <img class="logo_produit" src="/public/images/salade.png" alt="image Salade">
-                        <a class="lien_produit" href="Salades">Menu Salade</a>
+                        <a class="lien_produit" href="/Menu_salade">Menu Salade</a>
                     </div>
                     <div class="col-sm-12 col-md-4">
                         <img class="logo_produit" src="/public/images/menu.png" alt="image menu">
-                        <a class="lien_produit" href="Menus">Nos Menus</a>
+                        <a class="lien_produit" href="/Menus">Nos Menus</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 offset-md-4 col-md-5">
                         <img src="/public/images/burger.png" alt="image burger" class="logo_produit">
-                        <a href="Produits_seuls" class="lien_produit">Nos produits seuls</a>
+                        <a href="/Produits_seuls" class="lien_produit">Nos produits seuls</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class=" col-sm-12 offset-md-2 col-md-5">
                         <img class="logo_produit" src="/public/images/nuggets.png" alt="image menu">
-                        <a class="lien_produit" href="Fritures">Nos Fritures</a>
+                        <a class="lien_produit" href="/Fritures">Nos Fritures</a>
                     </div>
                     <div class=" col-sm-12 col-md-4">
                         <img class="logo_produit" src="/public/images/menu_enfant.png" alt="image menu">
-                        <a class="lien_produit" href="Menu_enfant">Menu Enfant</a>
+                        <a class="lien_produit" href="/Menu_enfant">Menu Enfant</a>
                     </div>
                 </div>
             </div>

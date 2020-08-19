@@ -1,37 +1,41 @@
+<?php
+
+// On récupère la liste des produits pouvant être vendu sans menu
+
+$select = "SELECT plat.id, nomPlat AS nom, prixPlat AS prix, imagePlat AS image FROM plat
+UNION 
+SELECT friture.id, nomFriture AS nom, prixFriture AS prix, imageFriture AS image FROM friture ";
+
+$req = $db->prepare($select);
+$req->execute();
+
+$plats = array();
+
+while ($data = $req->fetchObject()) {
+    array_push($plats, $data);
+}
+
+?>
 <div class="container">
     <div class="row">
         <h1 id='intro' class="col-sm-12 mt-3 d-flex justify-content-center">Nos Produits seuls</h1>
     </div>
     <div class="row">
-        <div class="liste_produits col-sm-12 col-md-4 mt-5">
-            <div class="card">
-                <img src="public/images/burger.png" class="card-img-top w-50 d-flex mx-auto" alt="image Burger">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-center">West Burger</h5>
-                    <p class="card-text d-flex justify-content-center">10€</p>
-                    <a href="produit_seul" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
+        <?php
+        foreach ($plats as $plat) {
+        ?>
+            <div class="liste_produits col-sm-12 col-md-4 mt-5">
+                <div class="card">
+                    <img src="public/images/<?= $plat->image ?>" class="card-img-top w-50 d-flex mx-auto" alt="image Burger">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><?= $plat->nom ?></h5>
+                        <p class="card-text d-flex justify-content-center"><?= $plat->prix ?></p>
+                        <a href="<?= $router->generate('produit_seul') ?>?id=<?= $plat->id ?>" class="btn btn-outline-dark d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="liste_produits col-sm-12 col-md-4 mt-5">
-            <div class="card">
-                <img src="public/images/burger.png" class="card-img-top w-50 d-flex mx-auto" alt="image Salade">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-center">Cheeseburger</h5>
-                    <p class="card-text d-flex justify-content-center">10€</p>
-                    <a href="produit_seul" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="liste_produits col-sm-12 col-md-4 mt-5">
-            <div class="card">
-                <img src="public/images/frites.png" class="card-img-top w-50 d-flex mx-auto" alt="image frites">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-center">Moyenne Frites</h5>
-                    <p class="card-text d-flex justify-content-center">10€</p>
-                    <a href="produit_seul" class="btn btn-primary d-flex justify-content-center mx-auto w-50">Voir plus</a>
-                </div>
-            </div>
-        </div>
+        <?php
+        }
+        ?>
     </div>
 </div>

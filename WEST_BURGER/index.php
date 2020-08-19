@@ -71,8 +71,7 @@ $router->map('GET|POST', '/Menus', '/Menus', 'Menus');
 $router->map('GET|POST', '/Produits_seuls', '/Produits_seuls', 'Produits_seuls');
 $router->map('GET|POST', '/Fritures', '/Fritures', 'Fritures');
 $router->map('GET|POST', '/Menu_enfant', '/Menu_enfant', 'Menu_enfant');
-$router->map('GET|POST', '/fiche_salade', '/fiche_salade', 'fiche_salade');
-$router->map('GET|POST', '/fiche_menu', '/fiche_menu', 'fiche_menu');
+$router->map('GET|POST', '/Menu_salade', '/Menu_salade', 'Menu_salade');
 $router->map('GET|POST', '/fiche_friture', '/fiche_friture', 'fiche_friture');
 $router->map('GET|POST', '/produit_seul', '/produit_seul', 'produit_seul');
 $router->map('GET|POST', '/Deconnexion', '/Deconnexion', 'Deconnexion');
@@ -122,10 +121,8 @@ if ($match['target'] == '/') {
     require "src/views/friture.php";
 } elseif ($match['target'] == "/Menu_enfant") {
     require "src/views/menu_enfant.php";
-} elseif ($match['target'] == "/fiche_salade") {
-    require "src/views/ficheSalade.php";
-} elseif ($match['target'] == "/fiche_menu") {
-    require "src/views/ficheMenus.php";
+} elseif ($match['target'] == "/Menu_salade") {
+    require "src/views/menu_salade.php";
 } elseif ($match['target'] == "/fiche_friture") {
     require "src/views/ficheFriture.php";
 } elseif ($match['target'] == "/produit_seul") {

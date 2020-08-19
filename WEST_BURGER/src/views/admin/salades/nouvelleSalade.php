@@ -10,9 +10,10 @@ if(isset($_POST['valider'])){
 
     // On verifie si le produit n'existe pas déjà
 
-    $existe = "SELECT COUNT(nomSalade) AS nb FROM salade";
+    $existe = "SELECT COUNT(nomSalade) AS nb FROM salade WHERE nomSalade = :nomSalade";
 
     $reqExiste = $db->prepare($existe);
+    $reqExiste->bindParam(':nomSalade', $nom);
     $reqExiste->execute();
 
     $nb = $reqExiste->fetchObject();

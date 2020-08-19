@@ -13,7 +13,7 @@ function footer()
                 <div class="col-sm-12 col-md-4 mt-2">
                     <p class="d-flex justify-content-center">Contact</p>
                     <div class="informations">
-                        N° de téléphone : 07-07-07-07-07
+                        N° de téléphone : 07-68-43-45-88
                         <br>
                         mail : faydbij@gmail.com
                     </div>
