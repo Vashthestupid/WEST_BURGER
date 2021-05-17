@@ -2,9 +2,18 @@
 
 // On récupère la liste des produits pouvant être vendu sans menu
 
-$select = "SELECT plat.id, nomPlat AS nom, prixPlat AS prix, imagePlat AS image FROM plat
-UNION 
-SELECT friture.id, nomFriture AS nom, prixFriture AS prix, imageFriture AS image FROM friture ";
+$select = "SELECT plat.id, 
+nomPlat AS nom,
+prixPlat AS prix,
+imagePlat AS image
+FROM plat
+UNION
+SELECT dessert.id,
+nomDessert AS nom,
+prixDessert AS prix,
+imageDessert AS image
+FROM dessert
+";
 
 $req = $db->prepare($select);
 $req->execute();
@@ -29,8 +38,8 @@ while ($data = $req->fetchObject()) {
                     <img src="public/images/<?= $plat->image ?>" class="card-img-top w-50 d-flex mx-auto" alt="image Burger">
                     <div class="card-body">
                         <h5 class="card-title d-flex justify-content-center"><?= $plat->nom ?></h5>
-                        <p class="card-text d-flex justify-content-center"><?= $plat->prix ?></p>
-                        <a href="<?= $router->generate('produit_seul') ?>?id=<?= $plat->id ?>" class="btn btn-outline-dark d-flex justify-content-center mx-auto w-50">Voir plus</a>
+                        <p class="card-text d-flex justify-content-center"><?= $plat->prix ?>€</p>
+                        <a href="<?= $router->generate('produit_seul') ?>?nom=<?= $plat->nom ?>" class="btn btn-outline-dark d-flex justify-content-center mx-auto w-50">Voir plus</a>
                     </div>
                 </div>
             </div>

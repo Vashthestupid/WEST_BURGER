@@ -2,9 +2,7 @@
 
 // On récupère la totalité des plats
 
-$select = "SELECT plat.id, nomPlat AS nom FROM plat
-UNION 
-SELECT friture.id, nomFriture AS nom FROM friture";
+$select = "SELECT plat.id, nomPlat AS nom FROM plat";
 
 $req = $db->prepare($select);
 $req->execute();
@@ -41,19 +39,53 @@ while ($data = $reqBoisson->fetchObject()) {
     array_push($boissons, $data);
 }
 
-// On récupère les desserts
+if ($_SESSION['login']) {
+    if (isset($_POST['valider'])) {
+        $plat = intval($_POST['plat']);
+        $accompagnement = intval($_POST['accompagnement']);
+        $boisson = intval($_POST['boisson']);
+        $dessert = intval($_POST['dessert']);
+        $quantite  = intval($_POST['quantite']);
 
-$selectDessert = "SELECT dessert.id, nomDessert FROM dessert";
+        // On insère d'abord dans la table menu
 
-$reqDessert = $db->prepare($selectDessert);
-$reqDessert->execute();
+        $insert = "INSERT INTO menu(boisson_id,plat_id,Accompagnement_id) VALUES(:boisson,:plat,:accompagnement)";
 
-$desserts = array();
+        $reqInsert = $db->prepare($insert);
+        $reqInsert->bindParam(':boisson', $boisson);
+        $reqInsert->bindParam(':plat', $plat);
+        $reqInsert->bindParam(':accompagnement', $accompagnement);
+        $reqInsert->execute();
 
-while($data = $reqDessert->fetchObject()){
-    array_push($desserts,$data);
+        // Maintenant on récupère le dernier id inséré
+        $lastInsertIdMenu = $db->lastInsertId();
+
+        // On récupère le prix du produit
+
+        $selectPrix = "SELECT prix FROM menu WHERE id = :lastInsert";
+
+        $reqPrix = $db->prepare($selectPrix);
+        $reqPrix->bindParam(':lastInsert', $lastInsertIdMenu);
+        $reqPrix->execute();
+
+        $prixMenu = $reqPrix->fetchObject();
+        $prix = $prixMenu->prix;
+
+        // Puis on l'insère dans la table panier
+        $insertPanier = "INSERT INTO panier(menu_id,utilisateur_id,quantite,prix,dateCommande) VALUE(:menu,:idUser,:quantite,:prix,NOW())";
+
+        $insertPanier = $db->prepare($insertPanier);
+        $insertPanier->bindParam(':menu', $lastInsertIdMenu);
+        $insertPanier->bindParam(':idUser', $_SESSION['user']);
+        $insertPanier->bindParam(':quantite', $quantite);
+        $insertPanier->bindParam(':prix', $prix);
+        $insertPanier->execute();
+
+        echo 'Le produit a bien été ajouté au panier';
+    }
+} else {
+    echo "Vous devez être connecté pour ajouter ce produit au panier";
 }
-
 ?>
 <div class="container">
     <div class="row">
@@ -111,24 +143,10 @@ while($data = $reqDessert->fetchObject()){
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="d-flex" for="boisson">Choisissez votre dessert</label>
-                        <select name="dessert" id="accompagnement">
-                            <option>Dessert</option>
-                            <?php
-                            foreach ($desserts as $dessert) {
-                            ?>
-                                <option value="<?= $dessert->id ?>"><?= $dessert->nomDessert ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label class="d-flex" for="quantite">Quantité</label>
-                        <input type="number" name="quantite" id="quantite">
+                        <input type="number" name="quantite" id="quantite" value="1">
                     </div>
-                    <input class="btn btn-secondary mb-5" type="submit" value="Ajouter">
+                    <input class="btn btn-secondary mb-5" name="valider" type="submit" value="Ajouter">
                 </form>
             </div>
         </div>

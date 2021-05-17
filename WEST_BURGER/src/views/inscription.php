@@ -63,7 +63,7 @@ if (isset($_POST['valider'])) {
 <br>
 
 <div id="connexion" class="offset-md-2 col-md-8">
-    <h2 class=" titleForm d-flex justify-content-center">Formulaire de connexion</h2>
+    <h4 class=" titleForm d-flex justify-content-center col-sm-12">Formulaire de connexion</h4>
     <form action="index.php" method='post' id="formConnexion" class="mt-5">
         <div class="form-group">
             <label for="email" class="d-flex justify-content-center">Email</label>
@@ -77,9 +77,8 @@ if (isset($_POST['valider'])) {
     </form>
 </div>
 
-<div id="inscription">
-    <p id="message"></p>
-    <h2 class=" titleForm d-flex justify-content-center">Formulaire d'inscription</h2>
+<div id="inscription" class="offset-md-2 col-md-8">
+    <h4 class=" titleForm d-flex justify-content-center col-sm-12">Formulaire d'inscription</h4>
     <form method="post" class="offset-md-2 col-md-8 mt-5">
         <div class="form-group">
             <label for="nom" class="d-flex justify-content-center">Nom</label>

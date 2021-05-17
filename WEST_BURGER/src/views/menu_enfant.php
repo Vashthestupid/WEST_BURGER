@@ -1,21 +1,31 @@
 <?php
 
-// On récupère la liste des plats
+// On récupére le Hamburger
 
-$selectPlat = "SELECT plat.id, nomPlat as nom FROM plat WHERE nomPlat = 'Hamburger'
-UNION 
-SELECT plat.id, nomPlat as nom FROM plat WHERE nomPLat = 'Croque'
-UNION
-SELECT friture.id, nomFriture as nom FROM friture WHERE nomFriture = 'Nuggets'";
+$selectHamburger = "SELECT * FROM plat WHERE nomPlat = 'Hamburger'";
 
-$reqPlat = $db->prepare($selectPlat);
-$reqPlat->execute();
+$reqHamburger = $db->prepare($selectHamburger);
+$reqHamburger->execute();
 
-$plats = array();
+$hamburger = $reqHamburger->fetcHobject();
 
-while($data = $reqPlat->fetchObject()){
-    array_push($plats,$data);
-}
+// On récupére le croque
+
+$selectCroque = "SELECT * FROM plat WHERE nomPlat = 'Croque'";
+
+$reqCroque = $db->prepare($selectCroque);
+$reqCroque->execute();
+
+$croque = $reqCroque->fetchObject();
+
+// On récupére les nuggets
+
+$selectNuggets = "SELECT * FROM friture WHERE nomFriture = 'Nuggets'";
+
+$reqNuggets = $db->prepare($selectNuggets);
+$reqNuggets->execute();
+
+$nuggets = $reqNuggets->fetchObject();
 
 // On récupère la liste des accompagnements
 
@@ -28,6 +38,85 @@ $accompagnements = array();
 
 while ($data = $reqAccompagnement->fetchObject()) {
     array_push($accompagnements, $data);
+}
+
+// On insére le menu enfant dans la table menuEnfant
+if ($_SESSION['login']) {
+    if (isset($_POST['valider'])) {
+        $plat = intval($_POST['plat']);
+        $accompagnement = intval($_POST['accompagnement']);
+        $quantite = intval($_POST['quantite']);
+
+        if ($plat == "1" || $plat == "2") {
+            $insert = "INSERT INTO menuenfant(plat_id,Accompagnement_id) VALUES(:plat,:accompagnement)";
+
+            $reqInsert = $db->prepare($insert);
+            $reqInsert->bindParam(':plat', $plat);
+            $reqInsert->bindParam(':accompagnement', $accompagnement);
+            $reqInsert->execute();
+
+            $lastInsertIdMenuEnfant = $db->lastInsertId();
+
+            // On récupère le prix du menu
+
+            $selectPrix = "SELECT prix FROM menuenfant WHERE id = :lastInsert";
+
+            $reqPrix = $db->prepare($selectPrix);
+            $reqPrix->bindParam(':lastInsert', $lastInsertIdMenuEnfant);
+            $reqPrix->execute();
+
+            $prixMenu = $reqPrix->fetchObject();
+            $prix = $prixMenu->prix;
+
+            // Puis dans le panier
+
+            $insertMenuEnfant = "INSERT INTO panier(menuEnfant_id,utilisateur_id,quantite,prix,dateCommande) VALUES(:menuEnfant,:idUtilisateur,:quantite,:prix,NOW())";
+
+            $reqInsertMenuEnfant = $db->prepare($insertMenuEnfant);
+            $reqInsertMenuEnfant->bindParam(':menuEnfant', $lastInsertIdMenuEnfant);
+            $reqInsertMenuEnfant->bindParam(':idUtilisateur', $_SESSION['user']);
+            $reqInsertMenuEnfant->bindParam(':quantite', $quantite);
+            $reqInsertMenuEnfant->bindParam(':prix', $prix);
+            $reqInsertMenuEnfant->execute();
+
+            echo 'Le produit a bien été ajouté au panier';
+        } elseif ($plat == "3") {
+            $insertNuggets = "INSERT INTO menuenfant(friture_id,Accompagnement_id) VALUES(:plat,:accompagnement)";
+
+            $reqInsertNuggets = $db->prepare($insertNuggets);
+            $reqInsertNuggets->bindParam(':plat', $plat);
+            $reqInsertNuggets->bindParam(':accompagnement', $accompagnement);
+            $reqInsertNuggets->execute();
+
+            $lastInsertIdMenuEnfantNuggets = $db->lastInsertId();
+
+            // On récupère le prix du menu
+
+            $selectPrixNuggets = "SELECT prix FROM menuenfant WHERE id = :lastInsertNuggets";
+
+            $reqPrixNuggets = $db->prepare($selectPrixNuggets);
+            $reqPrixNuggets->bindParam(':lastInsertNuggets', $lastInsertIdMenuEnfantNuggets);
+            $reqPrixNuggets->execute();
+
+            $prixMenuNuggets = $reqPrixNuggets->fetchObject();
+            $prixNuggets = $prixMenuNuggets->prix;
+
+            // Puis dans le panier
+
+            $insertNuggetsPanier = "INSERT INTO panier(menuEnfant_id,utilisateur_id,quantite,prix,dateCommande) VALUES(:menu,:idUser,:quantite,:prixNuggets,NOW())";
+
+            $reqInsertMenuEnfantNuggets = $db->prepare($insertNuggetsPanier);
+            $reqInsertMenuEnfantNuggets->bindParam(':menu', $lastInsertIdMenuEnfantNuggets);
+            $reqInsertMenuEnfantNuggets->bindParam(':idUser', $_SESSION['user']);
+            $reqInsertMenuEnfantNuggets->bindParam(':quantite', $quantite);
+            $reqInsertMenuEnfantNuggets->bindParam(':prixNuggets', $prixNuggets);
+            $reqInsertMenuEnfantNuggets->execute();
+
+            echo "Le produit a bien été ajouté";
+        }
+    }
+} else {
+    echo "Vous devez être connecté pour mettre ce produit au panier";
 }
 
 ?>
@@ -49,35 +138,26 @@ while ($data = $reqAccompagnement->fetchObject()) {
                 <form id="ajouter" method="post">
                     <div class="form-group">
                         <label class="d-flex" for="burger">Choisissez votre plat</label>
-                        <select name="plat" id="plat">
-                            <option>Plat</option>
-                            <?php
-                            foreach ($plats as $plat) {
-                            ?>
-                                <option value="<?= $plat->id ?>"><?= $plat->nom ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
+                        <input type="radio" name="plat" id="hamburger" autocomplete="off" value="<?= $hamburger->id ?>"> Hamburger
+                        <input type="radio" name="plat" id="croque" autocomplete="off" value="<?= $croque->id ?>"> Croque
+                        <input type="radio" name="plat" id="nuggets" autocomplete="off" value="<?= $nuggets->id ?>"> Nuggets
                     </div>
-                    <div class="form-group">
-                        <label class="d-flex" for="boisson">Frites ou potatoes</label>
-                        <select name="accompagnement" id="accompagnement">
-                            <option>Accompagnement</option>
-                            <?php
-                            foreach ($accompagnements as $accompagnement) {
-                            ?>
-                                <option value="<?= $accompagnement->id?>"><?= $accompagnement->nomAccompagnement?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
+                    <label class="d-flex" for="boisson">Frites ou potatoes</label>
+                    <select class="mb-3" name="accompagnement" id="accompagnement">
+                        <option>Accompagnement</option>
+                        <?php
+                        foreach ($accompagnements as $accompagnement) {
+                        ?>
+                            <option value="<?= $accompagnement->id ?>"><?= $accompagnement->nomAccompagnement ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
                     <div class="form-group">
                         <label class="d-flex" for="quantite">Quantité</label>
-                        <input type="number" name="quantite" id="quantite">
+                        <input type="number" name="quantite" id="quantite" value="1">
                     </div>
-                    <input class="btn btn-secondary" type="submit" value="Ajouter">
+                    <input class="btn btn-secondary" name="valider" type="submit" value="Ajouter">
                 </form>
             </div>
         </div>

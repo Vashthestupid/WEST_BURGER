@@ -19,7 +19,7 @@ function head()
 
     <body>
         <!-- Barre de navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-xl navbar-dark">
             <a class="navbar-brand" href="/"><img id="logo_site" src="/public/images/logo_west_burger.png" alt="Logo West Burger"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,6 @@ function head()
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Mon_compte">Mon compte</a>
-                                <a class="dropdown-item" href="/Mes_commandes">Mes commandes</a>
                                 <a class="dropdown-item" href="/Deconnexion">Deconnexion</a>
                                 <?php
                                 if ($_SESSION['role'] === '2') {
@@ -61,14 +60,15 @@ function head()
                                     <a class="dropdown-item" href="/admin/accompagnements">Liste des accompagnements</a>
                                     <a class="dropdown-item" href="/admin/desserts">Liste des desserts</a>
                                     <a class="dropdown-item" href="/admin/boissons">Liste des boissons</a>
+                                    <a class="dropdown-item" href="/admin/supplements">Liste des supplements</a>
                                 <?php
                                 } else {
-                                    ?>
-                                    <?= ""?>
-                                    <?php
                                 }
                                 ?>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Panier" class="nav-link">Panier</a>
                         </li>
                     <?php
                     }
@@ -76,14 +76,14 @@ function head()
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
 
         <!-- Sous menu -->
 
-        <div id="sous_menu">
+        <div id="sous_menu" class="container mt-2 mb-2">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12 offset-md-2 col-md-5">

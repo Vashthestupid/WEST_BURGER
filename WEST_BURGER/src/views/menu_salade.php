@@ -26,19 +26,52 @@ while ($data = $reqBoisson->fetchObject()) {
     array_push($boissons, $data);
 }
 
-// On récupère la liste des desserts
+// On ajoute le produit dans la table Menu_Salade
+if ($_SESSION['login']) {
+    if (isset($_POST['valider'])) {
+        $salade = intval($_POST['plat']);
+        $boisson = intval($_POST['boisson']);
+        $dessert = intval($_POST['dessert']);
+        $quantite  = intval($_POST['quantite']);
 
-$selectDessert = "SELECT dessert.id, nomDessert FROM dessert";
+        // On insère d'abord dans la table menu salade
 
-$reqDessert = $db->prepare($selectDessert);
-$reqDessert->execute();
+        $insert = "INSERT INTO menusalade(salade_id,boisson_id) VALUES(:salade,:boisson)";
 
-$desserts = array();
+        $reqInsert = $db->prepare($insert);
+        $reqInsert->bindParam(':salade', $salade);
+        $reqInsert->bindParam(':boisson', $boisson);
+        $reqInsert->execute();
 
-while ($data = $reqDessert->fetchObject()) {
-    array_push($desserts, $data);
+        // Maintenant on récupère le dernier id inséré
+        $lastInsertIdMenuSalade = $db->lastInsertId();
+
+        // On récupère le prix du menu
+
+        $selectPrix = "SELECT prix FROM menusalade WHERE id = :lastInsert";
+
+        $reqPrix = $db->prepare($selectPrix);
+        $reqPrix->bindParam(':lastInsert', $lastInsertIdMenuSalade);
+        $reqPrix->execute();
+
+        $prixMenu = $reqPrix->fetchObject();
+        $prix = $prixMenu->prix;
+
+        // Puis on l'insère dans la table panier
+        $insertPanier = "INSERT INTO panier(menusalade_id,utilisateur_id,quantite,prix,dateCommande) VALUES(:menuSalade,:idUser,:quantite,:prix,NOW())";
+
+        $insertPanier = $db->prepare($insertPanier);
+        $insertPanier->bindParam(':menuSalade', $lastInsertIdMenuSalade);
+        $insertPanier->bindParam(':idUser', $_SESSION['user']);
+        $insertPanier->bindParam(':quantite', $quantite);
+        $insertPanier->bindParam(':prix', $prix);
+        $insertPanier->execute();
+
+        echo 'Le produit a bien été ajouté au panier';
+    }
+} else {
+    echo "Vous devez être connecté pour mettre un produit au panier";
 }
-
 ?>
 <div class="container">
     <div class="row">
@@ -47,7 +80,7 @@ while ($data = $reqDessert->fetchObject()) {
             <div class="informations">
                 <h4 class="d-flex justify-content-center">Menu Salade</h4>
                 <img class="w-75 ml-4" src="public/images/salade.png" alt="image menu Salade">
-                <p class="d-flex justify-content-center">Prix: 4€</p>
+                <p class="d-flex justify-content-center">Prix: 10€</p>
             </div>
         </div>
         <!-- Colonne Description puis gestion de la commande  -->
@@ -83,23 +116,10 @@ while ($data = $reqDessert->fetchObject()) {
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="d-flex" for="boisson">Choisissez votre boisson</label>
-                        <select name="boisson" id="boisson">
-                            <option>Dessert</option>
-                            <?php
-                            foreach ($desserts as $dessert) {
-                            ?>
-                                <option value="<?= $dessert->id ?>"><?= $dessert->nomDessert ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label class="d-flex" for="quantite">Quantité</label>
-                        <input type="number" name="quantite" id="quantite">
+                        <input type="number" name="quantite" id="quantite" value="1">
                     </div>
-                    <input class="btn btn-secondary mb-5" type="submit" value="Ajouter">
+                    <input class="btn btn-secondary mb-5" type="submit" name="valider" value="Ajouter">
                 </form>
             </div>
         </div>

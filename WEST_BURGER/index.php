@@ -47,14 +47,8 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
             // echo '<meta http-equiv="refresh" content="0; url=/"/>';
         }
     } else {
-        header('location: /?erreur= Identifiant ou mot de passe invalide');
+        header('Location: /?erreur= Identifiant ou mot de passe invalide');
         // echo '<meta http-equiv="refresh" content="0;/?erreur=Identifiant ou mot de passe invalide"/>';
-    }
-
-    if (isset($_SESSION['login'])) {
-        $mail = $_SESSION['login'];
-    } else {
-        $mail = '';
     }
 }
 
@@ -72,7 +66,6 @@ $router->map('GET|POST', '/Produits_seuls', '/Produits_seuls', 'Produits_seuls')
 $router->map('GET|POST', '/Fritures', '/Fritures', 'Fritures');
 $router->map('GET|POST', '/Menu_enfant', '/Menu_enfant', 'Menu_enfant');
 $router->map('GET|POST', '/Menu_salade', '/Menu_salade', 'Menu_salade');
-$router->map('GET|POST', '/fiche_friture', '/fiche_friture', 'fiche_friture');
 $router->map('GET|POST', '/produit_seul', '/produit_seul', 'produit_seul');
 $router->map('GET|POST', '/Deconnexion', '/Deconnexion', 'Deconnexion');
 $router->map('GET|POST', '/admin/utilisateurs', 'utilisateurs', 'utilisateurs');
@@ -102,6 +95,13 @@ $router->map('GET|POST', '/admin/boissons', 'boissons', 'boissons');
 $router->map('GET|POST', '/admin/boissons/Nouvelle_boisson', 'Nouvelle_boisson', 'Nouvelle_boisson');
 $router->map('GET|POST', '/admin/boissons/Voir_boisson', 'Voir_boisson', 'Voir_boisson');
 $router->map('GET|POST', '/admin/boissons/Editer_boisson', 'Editer_boisson', 'Editer_boisson');
+$router->map('GET|POST', '/Mon_compte', '/Mon_compte', 'Mon_compte');
+$router->map('GET|POST', '/admin/supplements', 'supplements', 'supplements');
+$router->map('GET|POST', '/admin/supplements/Nouveau_supplement', 'Nouveau_supplement', 'Nouveau_supplement');
+$router->map('GET|POST', '/admin/supplements/Voir_supplement', 'Voir_supplement', 'Voir_supplement');
+$router->map('GET|POST', '/admin/supplements/Editer_supplement', 'Editer_supplement', 'Editer_supplement');
+$router->map('GET|POST', '/Panier', 'Panier', 'Panier');
+$router->map('GET|POST', '/Supprimer_du_panier', 'Supprimer_du_panier', 'Supprimer_du_panier');
 
 $match = $router->match();
 
@@ -123,10 +123,8 @@ if ($match['target'] == '/') {
     require "src/views/menu_enfant.php";
 } elseif ($match['target'] == "/Menu_salade") {
     require "src/views/menu_salade.php";
-} elseif ($match['target'] == "/fiche_friture") {
-    require "src/views/ficheFriture.php";
 } elseif ($match['target'] == "/produit_seul") {
-    require "src/views/produitSeul.php";
+    require "src/views/plat.php";
 } elseif ($match['target'] == "/Deconnexion") {
     require "src/views/deconnexion.php";
 } elseif ($match['target'] == "utilisateurs") {
@@ -183,6 +181,20 @@ if ($match['target'] == '/') {
     require "src/views/admin/boissons/voirBoisson.php";
 } elseif ($match['target'] == "Editer_boisson") {
     require "src/views/admin/boissons/modifierBoisson.php";
+} elseif ($match['target'] == "/Mon_compte") {
+    require "src/views/monCompte.php";
+} elseif ($match['target'] == "supplements") {
+    require "src/views/admin/supplements/index_supplements.php";
+} elseif ($match['target'] == "Nouveau_supplement") {
+    require "src/views/admin/supplements/nouveauSupplement.php";
+} elseif ($match['target'] == "Voir_supplement") {
+    require "src/views/admin/supplements/voirSupplement.php";
+} elseif ($match['target'] == "Editer_supplement") {
+    require "src/views/admin/supplements/modifierSupplement.php";
+} elseif ($match['target'] == "Panier") {
+    require "src/views/panier.php";
+} elseif ($match['target'] == "Supprimer_du_panier") {
+    require "src/views/supprimerDuPanier.php";
 }
 
 

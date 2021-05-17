@@ -1,12 +1,12 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     // Faire apparaître le sous menu
-    $('#lien_sous_menu').click(function () {
-        $('#sous_menu').toggle();
-    })
+    $("#lien_sous_menu").click(function() {
+        $("#sous_menu").toggle();
+    });
 
     // Faire apparaître un formulaire au clic 
-    $('#btnInscription').click(function () {
+    $('#btnInscription').click(function() {
         $('#inscription').show();
         $('#connexion').hide();
         // Changer la couleur des boutons en fonction de
@@ -17,7 +17,7 @@ $(document).ready(function () {
         $('#btnConnexion').addClass('btn-secondary');
     })
 
-    $('#btnConnexion').click(function () {
+    $('#btnConnexion').click(function() {
         $('#connexion').show();
         $('#inscription').hide();
         // Changer la couleur des boutons en fonction de
@@ -30,18 +30,41 @@ $(document).ready(function () {
 
     // Sur la page fiche produit le bouton plus affichera le formulaire de suppléments et fera disparaître le bouton valider
 
-    var personnaliser = '<button id="personnaliser" class="open d-flex mx-auto mb-3"> Personnaliser </button>'
     var fermer = '<button id="fermer" class=" d-flex mx-auto mb-3"> Fermer </button>'
 
-    $('#personnaliser').click(function(){
+    $('#personnaliser').click(function() {
         $('.suppléments').show();
         $('#ajouter').hide();
         $(this).replaceWith(fermer);
-        $('#fermer').click(function(){
+        $('#fermer').click(function() {
             $('#ajouter').show();
             $('.suppléments').hide();
-            $(this).replaceWith(" ");
+            $(this).replaceWith("");
         })
     })
+
+    // Gestion d'apparition des formulaires de la page mon compte
+
+    $('#btnModifier').click(function() {
+        $('#modifierInformations').show();
+        $('#modifierMail').hide();
+        $('#modifierMDP').hide();
+    })
+
+    $('#btnModifierMail').click(function() {
+        $('#modifierMail').show();
+        $('#modifierInformations').hide();
+        $('#modifierMDP').hide();
+    })
+
+    $('#btnMDP').click(function() {
+        $('#modifierMDP').show();
+        $('#modifierMail').hide();
+        $('#modifierInformations').hide();
+    })
+
+    $('.carousel').carousel({
+        interval: 2000
+    });
 
 })
